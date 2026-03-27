@@ -12,5 +12,5 @@ const usuarioRoutes = require('./routes/usuarios');
 app.use('/usuarios', usuarioRoutes);
 
 app.listen(PORT, ()=>{
-    console.log(`Servidor corriendo en htto://localhost:${PORT}`);
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
