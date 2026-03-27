@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router= express.Router();
-const pool = require('.../config/database');
+const pool = require('../config/database');
 
 // GET leer todos
 router.get('/', async(req, res)=>{
@@ -20,7 +20,7 @@ router.get('/:id', async(req, res)=>{
     const { id } =req.params;
     try{
         const result = await pool.query('SELECT * FROM usuarios WHERE id= $1', [id]);
-        return res.status(200).json(result.rows);
+     
         if (result.rowCount === 0){
             return res.status(404).json({error: 'Usuario No Encontrado'});
         }
@@ -108,3 +108,5 @@ router.delete('/:id', async(req, res)=>{
         return res.status(500).json({error: ' Error interno del servidor'})
     }
 });
+
+module.exports = router;
